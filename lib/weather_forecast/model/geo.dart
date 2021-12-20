@@ -1,8 +1,9 @@
 // To parse this JSON data, do
 //
 //     final geoModel = geoModelFromJson(jsonString);
-// LocalNames is returned empty because the API doesn't return local_names for some cities
-// And we're not using local_names in the app anyway. Fixes are welcome.
+// LocalNames is empty, because API doesn't send local_names for some city
+// and it is empty because the project doesn't use it. Fixes welcome
+// the variables can be elminated but is left for probable fix
 
 import 'dart:convert';
 
@@ -29,6 +30,8 @@ class GeoModel {
 
   factory GeoModel.fromJson(Map<String, dynamic> json) => GeoModel(
         name: json["name"],
+        localNames:
+            LocalNames.empty(json), //LocalNames.fromJson(json["local_names"])
         lat: json["lat"].toDouble(),
         lon: json["lon"].toDouble(),
         country: json["country"],
