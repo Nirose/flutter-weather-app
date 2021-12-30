@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:weather/weather_forecast/model/geo.dart';
 import 'package:weather/weather_forecast/model/weather_model.dart';
 import 'package:weather/weather_forecast/util/forecast_util.dart';
@@ -36,7 +35,7 @@ class Network {
         query +
         '&limit=1&appid=' +
         Util.appId;
-    debugPrint(geoUrl);
+    //debugPrint(geoUrl);
     final response = await get(Uri.parse(geoUrl));
     if (response.statusCode == 200 && response.body != '[]') {
       //print(response.body);
